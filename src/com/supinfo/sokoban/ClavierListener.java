@@ -7,13 +7,14 @@ import java.util.ArrayList;
 class ClavierListener implements KeyListener{
     private ArrayList<String> monMot = new ArrayList<String>();
     private String Word = "";
+    private int direction = 0;
 
     public void keyTyped(KeyEvent event) {}
     public void keyReleased(KeyEvent event) {}
     public void keyPressed(KeyEvent event) {
         // les directions
         if(event.getKeyCode() == 37 || event.getKeyCode() == 38 || event.getKeyCode() == 39 || event.getKeyCode() == 40) {
-            System.out.println(Select_Direction(event.getKeyCode()));
+            Select_Direction(event.getKeyCode());
         }
         // Copie de liste vers String
         for(int i=0; i<monMot.size(); i++) {
@@ -24,18 +25,22 @@ class ClavierListener implements KeyListener{
     }
 
 
-    public int Select_Direction (int Code) {
+    public void Select_Direction (int Code) {
         switch (Code) {
             case 37:
-                return 1; // gauche
+                this.direction = 1; // gauche
+                break;
             case 38:
-                return 2; // haut
+                this.direction = 2; // haut
+                break;
             case 39:
-                return 3; // droite
+                this.direction = 3; // droite
+                break;
             case 40:
-                return 4; // bas
+                this.direction = 4; // bas
+                break;
             default:
-                return 0;
+                this.direction = 0;
         }
     }
 
