@@ -10,15 +10,19 @@ public class Launcher
 
     public static void play(int level)
     {
-        Map map = new Map(level);
+        Player player = new Player();
+        Map map = new Map(level, player);
 
         do
         {
             map.display();
+            player.move(map);
         }
-        //while(!map.isDone());
-        while(false);
-        new Window();
-        new Score();
+        while(!map.isDone());
+
+        map.display();
+
+        //new Window();
+        //new Score();
     }
 }

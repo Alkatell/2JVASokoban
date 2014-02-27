@@ -2,6 +2,7 @@ package com.supinfo.sokoban;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.lang.Exception;
 
@@ -12,16 +13,16 @@ public class Map
     private int width = 0;
     private int height = 0;
     private Cell cells[][];
-    private Player player;
+    private ArrayList<Position> targets = new ArrayList<Position>();
 
-    public Map(int level)
+    public Map(int level, Player player)
     {
         System.out.println("initialize level " + level);
 
         this.level = level;
         this.path = "maps/" + this.level + ".sok";
         this.detectSize();
-        this.initializeCells();
+        this.initialize(player);
     }
 
     private void detectSize()
@@ -54,7 +55,7 @@ public class Map
         System.out.println("map size : " + this.width + ";" + this.height);
     }
 
-    private void initializeCells()
+    private void initialize(Player player)
     {
         this.cells = new Cell[this.width][this.height];
 
@@ -75,9 +76,10 @@ public class Map
                             this.cells[x][y] = new Cell(Cell.Type.WALL);
                             break;
 
-                        case 'o':
+                        case 'O':
                             this.cells[x][y] = new Cell(Cell.Type.TARGET);
                             this.cells[x][y].setTarget(true);
+                            this.targets.add(new Position(x, y));
                             break;
 
                         case 'B':
@@ -86,15 +88,21 @@ public class Map
 
                         case 'X':
                             this.cells[x][y] = new Cell(Cell.Type.PLAYER);
-                            this.player = new Player(x, y);
+                            player.setPosition(x, y);
                             break;
 
-                        case ' ':
+                        case '.':
                             this.cells[x][y] = new Cell(Cell.Type.FREE);
                             break;
 
-                        default:
+                        case 'V':
+                            this.cells[x][y] = new Cell(Cell.Type.BOX);
+                            this.cells[x][y].setTarget(true);
+                            this.targets.add(new Position(x, y));
                             break;
+
+                        default:
+                            throw new Exception("Map " + this.path + " invalid : char '" + line[x] + "' found.");
                     }
                 }
 
@@ -106,7 +114,12 @@ public class Map
 
         catch(FileNotFoundException e)
         {
-            System.out.println("test1 " + e.toString());
+            System.out.println(e.toString());
+        }
+
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
         }
     }
 
@@ -137,11 +150,11 @@ public class Map
                         break;
 
                     case TARGET:
-                        result = "o";
+                        result = "O";
                         break;
 
                     default:
-                        result = ".";
+                        result = " ";
                         break;
                 }
 
@@ -150,5 +163,38 @@ public class Map
 
             System.out.println();
         }
+    }
+
+    public Cell getCell(Position position)
+    {
+        return this.cells[position.getX()][position.getY()];
+    }
+
+    public Cell getCell(int x, int y)
+    {
+        return this.cells[x][y];
+    }
+
+    public boolean isDone()
+    {
+        for(int i = 0; i < this.targets.size(); i++)
+        {
+            if(this.getCell(this.targets.get(i)).getType() != Cell.Type.BOX)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public int getWidth()
+    {
+        return this.width;
+    }
+
+    public int getHeight()
+    {
+        return this.height;
     }
 }

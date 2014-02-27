@@ -16,6 +16,16 @@ public class Cell
         return this.type;
     }
 
+    public void setType(Type type)
+    {
+        this.type = type;
+    }
+
+    public boolean isTarget()
+    {
+        return this.target;
+    }
+
     public void setTarget(boolean target)
     {
         this.target = target;
