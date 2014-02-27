@@ -25,6 +25,12 @@ public class Map
         this.initialize(player);
     }
 
+	public int getLastLevel(){
+		File file = new File("maps");
+		File[] files = file.listFiles();
+		return files.length;
+	}
+
     private void detectSize()
     {
         try
@@ -197,4 +203,9 @@ public class Map
     {
         return this.height;
     }
+
+	public int getLevel()
+	{
+		return this.level;
+	}
 }

@@ -1,5 +1,7 @@
 package com.supinfo.sokoban;
 
+import java.io.IOException;
+
 public class Launcher
 {
     public static void main(String[] args)
@@ -17,12 +19,28 @@ public class Launcher
         {
             map.display();
             player.move(map);
+
+	        //EFFACER LA CONSOLE
         }
         while(!map.isDone());
 
         map.display();
 
-        //new Window();
+	    System.out.println("Vous avez gagné");
+	    System.out.println("Appuyez sur une toucher pour continuer");
+
+	    try {
+		    System.in.read();
+	    } catch (IOException e) {
+		    e.printStackTrace();
+	    }
+
+	    if (map.getLevel() < map.getLastLevel())
+	    {
+			play(map.getLevel() + 1);
+	    }
+
+	    //new Window();
         //new Score();
     }
 }
