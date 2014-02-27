@@ -18,5 +18,6 @@ public class Launcher
         }
         //while(!map.isDone());
         while(false);
+        new Window();
     }
 }

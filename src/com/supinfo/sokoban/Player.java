@@ -1,5 +1,8 @@
 package com.supinfo.sokoban;
 
+import java.awt.event.KeyEvent;
+import java.util.Scanner;
+
 public class Player
 {
     private Position position;
