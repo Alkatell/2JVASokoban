@@ -10,7 +10,13 @@ public class Launcher
 
     public static void play(int level)
     {
-        System.out.println("play level " + level);
         Map map = new Map(level);
+
+        do
+        {
+            map.display();
+        }
+        //while(!map.isDone());
+        while(false);
     }
 }
