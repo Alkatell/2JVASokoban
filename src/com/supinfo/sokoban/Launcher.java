@@ -114,7 +114,6 @@ public class Launcher
             System.out.println("Vous avez terminé tous les niveaux.");
         }
 
-	    //new Window();
         //new Score();
     }
 
