@@ -17,15 +17,14 @@ public class Map
 
     public Map(int level, Player player)
     {
-        System.out.println("initialize level " + level);
-
         this.level = level;
         this.path = "maps/" + this.level + ".sok";
         this.detectSize();
         this.initialize(player);
     }
 
-	public int getLastLevel(){
+	public static int getLastLevel()
+    {
 		File file = new File("maps");
 		File[] files = file.listFiles();
 		return files.length;
@@ -57,8 +56,6 @@ public class Map
         {
             System.out.println(e.toString());
         }
-
-        System.out.println("map size : " + this.width + ";" + this.height);
     }
 
     private void initialize(Player player)
@@ -108,7 +105,11 @@ public class Map
                             break;
 
                         default:
-                            throw new Exception("Map " + this.path + " invalid : char '" + line[x] + "' found.");
+                            throw new Exception(
+                                "Map " + this.path + " invalide :"
+                                + " caractère '" + line[x] + "'"
+                                + " ligne " + (x + 1) + ", colonne " + (y + 1)
+                            );
                     }
                 }
 
@@ -131,6 +132,8 @@ public class Map
 
     public void display()
     {
+        System.out.println("Niveau " + this.level + " :\n");
+
         for(int y = 0; y < this.height; y++)
         {
             for(int x = 0; x < this.width; x++)

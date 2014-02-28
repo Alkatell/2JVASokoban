@@ -8,6 +8,9 @@ import java.util.Scanner;
 public class Player
 {
     private Position position;
+    public static final int RESULT_CONTINUE = 0;
+    public static final int RESULT_RESTART = 1;
+    public static final int RESULT_STOP = 2;
 
     public Player()
     {
@@ -19,7 +22,7 @@ public class Player
         this.position = new Position(x, y);
     }
 
-    public void move(Map map)
+    public int move(Map map)
     {
         boolean validInput;
 
@@ -29,7 +32,7 @@ public class Player
             int nextY1 = this.position.getY(), nextY2 = nextY1;
             validInput = true;
 
-            System.out.print("\nMouvement : ");
+            System.out.print("\nEffectuez un mouvement (h pour afficher l'aide) : ");
             Scanner reader = new Scanner(System.in);
 
             switch(reader.next().charAt(0))
@@ -58,6 +61,28 @@ public class Player
                     nextX2 += 2;
                     break;
 
+                case 'h':
+                case 'H':
+                    validInput = false;
+                    System.out.println(
+                        "z : se déplacer vers le haut\n"
+                        + "s : se déplacer vers le bas\n"
+                        + "q : se déplacer vers la gauche\n"
+                        + "d : se déplacer vers la droite\n"
+                        + "h : afficher l'aide\n"
+                        + "r : recommencer le niveau\n"
+                        + "a : abandonner"
+                    );
+                    break;
+
+                case 'r':
+                case 'R':
+                    return RESULT_RESTART;
+
+                case 'a':
+                case 'A':
+                    return RESULT_STOP;
+
                 default:
                     validInput = false;
                     break;
@@ -67,7 +92,6 @@ public class Player
             if(validInput && nextX1 >= 0 && nextX1 < map.getWidth() && nextY1 >= 0 && nextY1 < map.getHeight())
             {
                 Cell.Type nextType1 = map.getCell(nextX1, nextY1).getType();
-                Cell.Type nextType2 = map.getCell(nextX2, nextY2).getType();
 
                 if(nextType1 == Cell.Type.FREE || nextType1 == Cell.Type.TARGET)
                 {
@@ -85,25 +109,31 @@ public class Player
                     this.setPosition(nextX1, nextY1);
                 }
 
-                else if(nextType1 == Cell.Type.BOX && (nextType2 == Cell.Type.FREE || nextType2 == Cell.Type.TARGET)
-                        && nextX2 >= 0 && nextX2 < map.getWidth() && nextY2 >= 0 && nextY2 < map.getHeight())
+                else if(nextType1 == Cell.Type.BOX && nextX2 >= 0 && nextX2 < map.getWidth() && nextY2 >= 0 && nextY2 < map.getHeight())
                 {
-                    if(map.getCell(this.position).isTarget())
-                    {
-                        map.getCell(this.position).setType(Cell.Type.TARGET);
-                    }
+                    Cell.Type nextType2 = map.getCell(nextX2, nextY2).getType();
 
-                    else
+                    if(nextType2 == Cell.Type.FREE || nextType2 == Cell.Type.TARGET)
                     {
-                        map.getCell(this.position).setType(Cell.Type.FREE);
-                    }
+                        if(map.getCell(this.position).isTarget())
+                        {
+                            map.getCell(this.position).setType(Cell.Type.TARGET);
+                        }
 
-                    map.getCell(nextX1, nextY1).setType(Cell.Type.PLAYER);
-                    map.getCell(nextX2, nextY2).setType(Cell.Type.BOX);
-                    this.setPosition(nextX1, nextY1);
+                        else
+                        {
+                            map.getCell(this.position).setType(Cell.Type.FREE);
+                        }
+
+                        map.getCell(nextX1, nextY1).setType(Cell.Type.PLAYER);
+                        map.getCell(nextX2, nextY2).setType(Cell.Type.BOX);
+                        this.setPosition(nextX1, nextY1);
+                    }
                 }
             }
         }
         while(!validInput);
+
+        return RESULT_CONTINUE;
     }
 }
