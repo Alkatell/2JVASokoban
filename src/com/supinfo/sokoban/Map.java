@@ -1,7 +1,6 @@
 package com.supinfo.sokoban;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.lang.Exception;
@@ -211,4 +210,50 @@ public class Map
 	{
 		return this.level;
 	}
+
+    public static void create()
+    {
+        String line = "";
+        int num_line = 0;
+        Scanner reader = new Scanner(System.in);
+
+        System.out.print("Entrer le nombre de ligne: ");
+        num_line = reader.nextInt();
+
+        String adressfile = "maps/user/";
+        System.out.print("Entrer le nom du niveau : ");
+        Scanner readerName = new Scanner(System.in);
+        String namefile = readerName.nextLine();
+        adressfile += namefile;
+        adressfile += ".sok";
+
+        try
+        {
+            java.io.File fichier = new java.io.File(adressfile);
+            fichier.createNewFile();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try
+        {
+            FileWriter file = new FileWriter(adressfile, true);
+            BufferedWriter output = new BufferedWriter(file);
+
+            for(int i=0; i<num_line; i++) {
+                System.out.print("Entrer la ligne du tableau n " + i + " : ");
+                Scanner readerline = new Scanner(System.in);
+                line = readerline.nextLine();
+                line += "\n";
+                output.write(line);
+                output.flush();
+            }
+            output.close();
+            System.out.println("Tableau creer");
+        }catch(IOException e){
+            System.out.print("Erreur : ");
+            e.printStackTrace();
+        }
+    }
 }

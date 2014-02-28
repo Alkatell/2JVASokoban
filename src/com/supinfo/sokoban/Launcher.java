@@ -15,7 +15,7 @@ public class Launcher
             case 1:
                 if(args[0].equals("--create"))
                 {
-                    System.out.println("lancer l'éditeur");
+                    Map.create();
                 }
 
                 else
