@@ -4,25 +4,29 @@ import java.util.Date;
 
 public class Score
 {
-    private long time_start;
-    private long time_stop;
+    private long startedAt;
+    private long stoppedAt;
+    private boolean timerOn = false;
 
-    public Score() {
-        long ts = (new Date()).getTime();
-        System.out.println(ts);
+    public void startTimer()
+    {
+        this.startedAt = new Date().getTime();
+        this.timerOn = true;
     }
 
-    public void start() {
-        long ts = (new Date()).getTime();
-        this.time_start = ts;
+    public void stopTimer()
+    {
+        this.stoppedAt = new Date().getTime();
+        this.timerOn = false;
     }
 
-    public void stop() {
-        long ts = (new Date()).getTime();
-        this.time_stop = ts;
+    public long getResult()
+    {
+        return this.stoppedAt - this.startedAt;
     }
 
-    public long calcul() {
-        return this.time_stop - this.time_start;
+    public boolean timerIsOn()
+    {
+        return this.timerOn;
     }
 }

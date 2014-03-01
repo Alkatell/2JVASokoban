@@ -2,7 +2,7 @@ package com.supinfo.sokoban;
 
 public class Cell
 {
-    public enum Type { PLAYER, WALL, BOX, TARGET, FREE };
+    public enum Type { PLAYER, WALL, BOX, TARGET, FREE }
     private Type type = Type.FREE;
     private boolean target = false;
 
@@ -29,5 +29,18 @@ public class Cell
     public void setTarget(boolean target)
     {
         this.target = target;
+    }
+
+    public void reset()
+    {
+        if(this.isTarget())
+        {
+            this.type = Cell.Type.TARGET;
+        }
+
+        else
+        {
+            this.type = Cell.Type.FREE;
+        }
     }
 }

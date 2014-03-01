@@ -9,13 +9,16 @@ public class Map
 {
     private int level;
     private String path;
-    private int width = 0;
-    private int height = 0;
+    private int width;
+    private int height;
     private Cell cells[][];
-    private ArrayList<Position> targets = new ArrayList<Position>();
+    private ArrayList<Position> targets;
 
     public Map(int level, Player player)
     {
+        this.height = 0;
+        this.width = 0;
+        this.targets = new ArrayList<Position>();
         this.level = level;
         this.path = "maps/" + this.level + ".sok";
         this.detectSize();
@@ -26,6 +29,7 @@ public class Map
     {
 		File file = new File("maps");
 		File[] files = file.listFiles();
+
 		return files.length;
 	}
 
@@ -120,18 +124,20 @@ public class Map
 
         catch(FileNotFoundException e)
         {
-            System.out.println(e.toString());
+            System.err.println(e.toString());
+            System.exit(1);
         }
 
         catch(Exception e)
         {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
+            System.exit(1);
         }
     }
 
     public void display()
     {
-        System.out.println("Niveau " + this.level + " :\n");
+        System.out.println("Niveau " + this.level + " :");
 
         for(int y = 0; y < this.height; y++)
         {
@@ -255,5 +261,10 @@ public class Map
             System.out.print("Erreur : ");
             e.printStackTrace();
         }
+    }
+
+    public boolean checkPosition(int x, int y)
+    {
+        return x >= 0 && x < this.getWidth() && y >= 0 && y < this.getHeight();
     }
 }

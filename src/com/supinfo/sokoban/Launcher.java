@@ -1,6 +1,7 @@
 package com.supinfo.sokoban;
 
-import java.io.IOException;
+import org.jnativehook.GlobalScreen;
+import org.jnativehook.NativeHookException;
 
 public class Launcher
 {
@@ -9,7 +10,7 @@ public class Launcher
         switch(args.length)
         {
             case 0:
-                play(1);
+                Launcher.play(1);
                 break;
 
             case 1:
@@ -20,7 +21,7 @@ public class Launcher
 
                 else
                 {
-                    help();
+                    Launcher.help();
                 }
                 break;
 
@@ -33,11 +34,12 @@ public class Launcher
                     {
                         if(args[0].equals("--level"))
                         {
-                            play(level);
+                            Launcher.play(level);
                         }
 
                         else
                         {
+                            // @todo Afficher les scores
                             System.out.println("Afficher les scores du niveau " + level);
                         }
                     }
@@ -53,7 +55,7 @@ public class Launcher
 
                 else
                 {
-                    help();
+                    Launcher.help();
                 }
                 break;
 
@@ -64,57 +66,22 @@ public class Launcher
 
     public static void play(int level)
     {
+        try
+        {
+            GlobalScreen.registerNativeHook();
+        }
+
+        catch(NativeHookException e)
+        {
+            System.err.println("There was a problem registering the native hook.");
+            System.err.println(e.getMessage());
+
+            System.exit(1);
+        }
+
         Player player = new Player();
-        Map map;
-        int nextAction;
-
-        do
-        {
-            map = new Map(level, player);
-
-            do
-            {
-                map.display();
-                nextAction = player.move(map);
-                // @todo Effacer la console
-            }
-            while(!map.isDone() && nextAction == Player.RESULT_CONTINUE);
-        }
-        while(nextAction == Player.RESULT_RESTART);
-
-        if(nextAction == Player.RESULT_STOP)
-        {
-            return;
-        }
-
-        map.display();
-
-	    System.out.println(
-            "\nVous avez gagné le niveau " + map.getLevel() + ".\n"
-            + "Appuyez sur la touche ENTREE pour continuer."
-        );
-
-	    try
-        {
-		    System.in.read();
-	    }
-
-        catch(IOException e)
-        {
-		    e.printStackTrace();
-	    }
-
-	    if(map.getLevel() < Map.getLastLevel())
-	    {
-			play(map.getLevel() + 1);
-	    }
-
-        else
-        {
-            System.out.println("Vous avez terminé tous les niveaux.");
-        }
-
-        //new Score();
+        GlobalScreen.getInstance().addNativeKeyListener(new KeyboardListener(player));
+        player.play(level);
     }
 
     public static void help()
