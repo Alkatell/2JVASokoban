@@ -3,6 +3,8 @@ package com.supinfo.sokoban;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
 
@@ -45,7 +47,7 @@ public class Score
 
         long minutes = difference / (60 * 1000) % 60;
         long seconds = difference / 1000 % 60;
-        long milliseconds = difference % 60;
+        long milliseconds = difference % 1000;
 
         String result = this.moves + " mouvements en ";
 
@@ -172,6 +174,8 @@ public class Score
                 JSONArray scores = (JSONArray) level.get("scores");
                 Iterator<JSONObject> scoresIterator = scores.iterator();
 
+	            ArrayList<Score> result = new ArrayList<Score>();
+
                 while(scoresIterator.hasNext())
                 {
                     JSONObject score = scoresIterator.next();
@@ -179,10 +183,34 @@ public class Score
                     Score currentScore = new Score();
                     currentScore.initialize(score);
 
-                    System.out.println(currentScore.getResult());
+					result.add(currentScore);
                 }
 
-                break;
+	            boolean sorted;
+
+				do
+				{
+					sorted = true;
+
+			        for (int i = 1; i < result.size(); i++)
+		            {
+						if (result.get(i - 1).getDifference() > result.get(i).getDifference())
+						{
+							sorted = false;
+							Score save = result.get(i - 1);
+							result.set(i - 1, result.get(i));
+							result.set(i, save);
+						}
+		            }
+				}
+				while (!sorted);
+
+	            for (int i = 1; i < result.size(); i++)
+	            {
+		            System.out.println(result.get(i).getResult());
+	            }
+
+	            break;
             }
         }
     }
@@ -193,4 +221,9 @@ public class Score
         this.stoppedAt = Long.parseLong(score.get("stoppedAt").toString());
         this.moves = Integer.parseInt(score.get("moves").toString());
     }
+
+	public int getDifference()
+	{
+		return (int) this.stoppedAt - (int) this.startedAt;
+	}
 }
