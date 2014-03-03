@@ -98,6 +98,7 @@ public class Player
             else
             {
                 System.out.println("Vous avez terminé tous les niveaux !");
+                System.out.println("Appuyez sur la touche ECHAP pour passer terminer.");
             }
         }
     }
@@ -122,5 +123,10 @@ public class Player
     public Score getScore()
     {
         return score;
+    }
+
+    public Map getMap()
+    {
+        return this.map;
     }
 }

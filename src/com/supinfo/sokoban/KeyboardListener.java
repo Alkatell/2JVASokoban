@@ -32,7 +32,10 @@ public class KeyboardListener implements NativeKeyListener
                 break;
 
             case NativeKeyEvent.VK_N:
-                this.player.playNextLevel();
+                if(!this.player.getScore().timerIsOn() && this.player.getMap().getLevel() < Map.getLastLevel())
+                {
+                    this.player.playNextLevel();
+                }
                 break;
 
             case NativeKeyEvent.VK_R:

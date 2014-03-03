@@ -13,6 +13,8 @@ public class Map
     private int height;
     private Cell cells[][];
     private ArrayList<Position> targets;
+    public static final String PATH = "maps/";
+    public static final String EXTENSION = ".sok";
 
     public Map(int level, Player player)
     {
@@ -20,18 +22,24 @@ public class Map
         this.width = 0;
         this.targets = new ArrayList<Position>();
         this.level = level;
-        this.path = "maps/" + this.level + ".sok";
+        this.path = Map.PATH + this.level + Map.EXTENSION;
         this.detectSize();
         this.initialize(player);
     }
 
 	public static int getLastLevel()
     {
-		File file = new File("maps");
-		File[] files = file.listFiles();
+        File file = new File(Map.PATH);
+        File[] files = file.listFiles();
 
-		return files.length;
-	}
+        if(files == null)
+        {
+            System.err.println("Maps introuvables.");
+            System.exit(1);
+        }
+
+        return files.length;
+    }
 
     private void detectSize()
     {
@@ -219,47 +227,61 @@ public class Map
 
     public static void create()
     {
-        String line = "";
-        int num_line = 0;
-        Scanner reader = new Scanner(System.in);
-
-        System.out.print("Entrer le nombre de ligne: ");
-        num_line = reader.nextInt();
-
-        String adressfile = "maps/user/";
-        System.out.print("Entrer le nom du niveau : ");
-        Scanner readerName = new Scanner(System.in);
-        String namefile = readerName.nextLine();
-        adressfile += namefile;
-        adressfile += ".sok";
-
         try
         {
-            java.io.File fichier = new java.io.File(adressfile);
-            fichier.createNewFile();
+            // On demande le nombre de lignes
+            Scanner sc = new Scanner(System.in);
+            int h;
 
-        } catch (IOException e) {
-            e.printStackTrace();
+            do
+            {
+                System.out.print("Combien de lignes votre map va-t-elle faire ? ");
+                h = sc.nextInt();
+            }
+            while(h <= 0);
+
+            // On demande à l'utilisateur d'entrer sa map
+            String[] lines = new String[h];
+            sc = new Scanner(System.in);
+
+            System.out.println(
+                "\nDessinez votre map, ligne par ligne.\n\n"
+                + "Caractères autorisés :\nmur : =\t\tcase vide : .\tjoueur : X\ncible : O\tboite : B\tboite sur une cible : V\n"
+            );
+
+            for(int i = 0; i < h; i++)
+            {
+                System.out.print("ligne " + (i + 1) + "/" + h + ":\t");
+                lines[i] = sc.nextLine();
+            }
+
+            // On créer le nouveau fichier
+            String path = Map.PATH + (Map.getLastLevel() + 1) + Map.EXTENSION;
+            File newMap = new File(path);
+            newMap.createNewFile();
+
+            BufferedWriter map = new BufferedWriter(new FileWriter(path, true));
+
+            for(int i = 0; i < h; i++)
+            {
+                map.write(lines[i]);
+
+                if(i < h - 1)
+                {
+                    map.write("\n");
+                }
+
+                map.flush();
+            }
+
+            map.close();
+
+            System.out.println("\nMap créée à l'adresse " + path + " !");
         }
 
-        try
+        catch(IOException e)
         {
-            FileWriter file = new FileWriter(adressfile, true);
-            BufferedWriter output = new BufferedWriter(file);
-
-            for(int i=0; i<num_line; i++) {
-                System.out.print("Entrer la ligne du tableau n " + i + " : ");
-                Scanner readerline = new Scanner(System.in);
-                line = readerline.nextLine();
-                line += "\n";
-                output.write(line);
-                output.flush();
-            }
-            output.close();
-            System.out.println("Tableau creer");
-        }catch(IOException e){
-            System.out.print("Erreur : ");
-            e.printStackTrace();
+            System.err.print(e.getMessage());
         }
     }
 
