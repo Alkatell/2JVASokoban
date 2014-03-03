@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="2JVASokoban:jar">
+    <output-path>$PROJECT_DIR$/</output-path>
+    <root id="archive" name="2JVASokoban.jar">
+      <element id="module-output" name="2JVASokoban" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/JNativeHook.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/json-simple-1.1.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

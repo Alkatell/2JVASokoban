@@ -1,17 +1,15 @@
 package com.supinfo.sokoban;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 public class Score
 {
@@ -204,10 +202,11 @@ public class Score
 		            }
 				}
 				while (!sorted);
+                int limit = (result.size()< 10) ? result.size() : 10;
 
-	            for (int i = 1; i < result.size(); i++)
+	            for (int i = 0; i < limit; i++)
 	            {
-		            System.out.println(result.get(i).getResult());
+		            System.out.println((i+1) + " : " + result.get(i).getResult());
 	            }
 
 	            break;
