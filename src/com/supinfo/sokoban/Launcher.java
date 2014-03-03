@@ -39,8 +39,7 @@ public class Launcher
 
                         else
                         {
-                            // @todo Afficher les scores
-                            System.out.println("Afficher les scores du niveau " + level);
+                            Score.display(level);
                         }
                     }
 

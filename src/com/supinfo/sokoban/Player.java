@@ -6,7 +6,7 @@ public class Player
 {
     private Position position;
     private Map map;
-    private Score score = new Score();
+    private Score score;
 
     public void setPosition(int x, int y)
     {
@@ -59,6 +59,7 @@ public class Player
                 // On déplace le joueur
                 this.map.getCell(nextX1, nextY1).setType(Cell.Type.PLAYER);
                 this.position = new Position(nextX1, nextY1);
+                this.score.addMove();
             }
 
             // Sinon si la prochaine case est une boîte, on tente de déplacer la boîte
@@ -76,6 +77,7 @@ public class Player
                     this.map.getCell(nextX1, nextY1).setType(Cell.Type.PLAYER);
                     this.map.getCell(nextX2, nextY2).setType(Cell.Type.BOX);
                     this.position = new Position(nextX1, nextY1);
+                    this.score.addMove();
                 }
             }
         }
@@ -87,18 +89,19 @@ public class Player
         if(this.map.isDone())
         {
             this.score.stopTimer();
+            this.score.save(this.map.getLevel());
 
             if(this.map.getLevel() < Map.getLastLevel())
             {
                 System.out.println("Vous avez terminé le niveau " + this.map.getLevel() + " !");
-                System.out.println("Votre score est : " + this.score.getResult());
-                System.out.println("Appuyez sur la touche n pour passer au niveau suivant.");
+                System.out.println("Votre score : " + this.score.getResult());
+                System.out.println("Appuyez sur la touche N pour passer au niveau suivant.\n");
             }
 
             else
             {
                 System.out.println("Vous avez terminé tous les niveaux !");
-                System.out.println("Appuyez sur la touche ECHAP pour passer terminer.");
+                System.out.println("Appuyez sur la touche ECHAP pour terminer.");
             }
         }
     }
@@ -110,6 +113,7 @@ public class Player
 
     public void play(int level)
     {
+        this.score = new Score();
         this.map = new Map(level, this);
         this.map.display();
         this.score.startTimer();
