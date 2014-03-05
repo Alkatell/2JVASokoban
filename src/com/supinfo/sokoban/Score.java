@@ -190,9 +190,9 @@ public class Score
 				{
 					sorted = true;
 
-			        for (int i = 1; i < result.size(); i++)
+			        for(int i = 1; i < result.size(); i++)
 		            {
-						if (result.get(i - 1).getDifference() > result.get(i).getDifference())
+						if(result.get(i - 1).getDifference() > result.get(i).getDifference())
 						{
 							sorted = false;
 							Score save = result.get(i - 1);
@@ -201,12 +201,15 @@ public class Score
 						}
 		            }
 				}
-				while (!sorted);
+				while(!sorted);
+
                 int limit = (result.size()< 10) ? result.size() : 10;
 
-	            for (int i = 0; i < limit; i++)
+                System.out.println();
+
+	            for(int i = 0; i < limit; i++)
 	            {
-		            System.out.println((i+1) + " : " + result.get(i).getResult());
+		            System.out.println("#" + (i + 1) + "\t: " + result.get(i).getResult());
 	            }
 
 	            break;

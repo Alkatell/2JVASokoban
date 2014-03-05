@@ -118,7 +118,7 @@ public class Map
                         default:
                             throw new Exception(
                                 "Map " + this.path + " invalide :"
-                                + " caractère '" + line[x] + "'"
+                                + " caractere '" + line[x] + "'"
                                 + " ligne " + (x + 1) + ", colonne " + (y + 1)
                             );
                     }
@@ -185,6 +185,8 @@ public class Map
 
             System.out.println();
         }
+
+        System.out.println();
     }
 
     public Cell getCell(Position position)
@@ -229,30 +231,121 @@ public class Map
     {
         try
         {
-            // On demande le nombre de lignes
-            Scanner sc = new Scanner(System.in);
-            int h;
-
-            do
-            {
-                System.out.print("Combien de lignes votre map va-t-elle faire ? ");
-                h = sc.nextInt();
-            }
-            while(h <= 0);
-
             // On demande à l'utilisateur d'entrer sa map
-            String[] lines = new String[h];
-            sc = new Scanner(System.in);
+            ArrayList<String> lines = new ArrayList<String>();
+            Scanner sc = new Scanner(System.in);
+            boolean scan = true;
+            int totalLines = 0;
 
             System.out.println(
-                "\nDessinez votre map, ligne par ligne.\n\n"
-                + "Caractères autorisés :\nmur : =\t\tcase vide : .\tjoueur : X\ncible : O\tboite : B\tboite sur une cible : V\n"
+                "\nDessinez votre map, ligne par ligne. Pour terminer, entrez une ligne contenant uniquement 'P'.\n"
+                + "Attention : pour que votre map soit valide, toutes les lignes doivent faire la meme taille,\n"
+                + "votre map doit contenir un seul joueur et autant de boites que de cibles.\n\n"
+                + "Caracteres autorises :\nmur : =\t\tcase vide : .\tjoueur : X\ncible : O\tboite : B\tboite sur une cible : V\n"
             );
 
-            for(int i = 0; i < h; i++)
+            while(scan)
             {
-                System.out.print("ligne " + (i + 1) + "/" + h + ":\t");
-                lines[i] = sc.nextLine();
+                System.out.print("ligne " + (totalLines + 1) + "\t: ");
+                String line = sc.nextLine(), error = "";
+                boolean displayError = false;
+
+                // Si l'utilisateur entre un P, la map est terminée
+                if(line.equals("P") || line.equals("p"))
+                {
+                    scan = false;
+                }
+
+                // Sinon si la nouvelle ligne ne fait pas la même taille que la précédente, l'utilisateur doit recommencer la ligne
+                else if(totalLines > 0 && line.length() != lines.get(totalLines - 1).length())
+                {
+                    error = "Attention : toutes les lignes doivent contenir le meme nombre de caracteres.";
+                    displayError = true;
+                }
+
+                // Sinon si la ligne contient un ou plusieurs caractère(s) invalide(s), l'utilisateur doit recommencer la ligne
+                else if(!line.matches("[=.XOBV]*"))
+                {
+                    error = "Attention : vous avez insere un ou plusieurs caractere(s) invalide(s).";
+                    displayError = true;
+                }
+
+
+                // Sinon la ligne est valide, on l'enregistre
+                else
+                {
+                    lines.add(line);
+                    totalLines++;
+                }
+
+                // Si il y a une erreur, on l'affiche
+                if(displayError)
+                {
+                    System.out.println("\n" + error);
+                    System.out.println("Veuillez recommencer :\n");
+
+                    for(int i = 0; i < lines.size(); i++)
+                    {
+                        System.out.println("ligne " + (i + 1) + "\t: " + lines.get(i));
+                    }
+                }
+            }
+
+            // Vérification de la taille de la map
+            if(lines.size() <= 1 || lines.get(0).length() <= 1)
+            {
+
+                System.out.println("\nVotre map est invalide : elle doit etre composee d'au minimum deux lignes et deux colonnes.");
+                return;
+            }
+
+            // Vérification de la composition de la map
+            int boxes = 0, targets = 0, players = 0;
+
+            for(int i = 0; i < lines.size(); i++)
+            {
+                char[] line = lines.get(i).toCharArray();
+
+                for(int j = 0; j < line.length; j++)
+                {
+                    switch(line[j])
+                    {
+                        case 'B':
+                            boxes++;
+                            break;
+
+                        case 'O':
+                            targets++;
+                            break;
+
+                        case 'X':
+                            players++;
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+            }
+
+            if(players != 1)
+            {
+                System.out.println("\nVotre map est invalide : elle doit contenir un joueur.");
+                return;
+            }
+
+            else if(boxes != targets)
+            {
+                System.out.println("\nVotre map est invalide : elle doit contenir le meme nombre de boites que de cibles.");
+                System.out.println("Elle contient actuellement " + boxes + " boites et " + targets + " cibles.");
+                return;
+            }
+
+            else if(boxes == 0)
+            {
+
+                System.out.println("\nVotre map est invalide : elle doit contenir au moins une boite et une cible.");
+                return;
             }
 
             // On créer le nouveau fichier
@@ -262,11 +355,11 @@ public class Map
 
             BufferedWriter map = new BufferedWriter(new FileWriter(path, true));
 
-            for(int i = 0; i < h; i++)
+            for(int i = 0; i < lines.size(); i++)
             {
-                map.write(lines[i]);
+                map.write(lines.get(i));
 
-                if(i < h - 1)
+                if(i < lines.size() - 1)
                 {
                     map.write("\n");
                 }
@@ -276,7 +369,8 @@ public class Map
 
             map.close();
 
-            System.out.println("\nMap créée à l'adresse " + path + " !");
+            System.out.println("\nMap disponible à l'adresse " + path + " !");
+            System.out.println("Pour y jouer : --level " + Map.getLastLevel());
         }
 
         catch(IOException e)

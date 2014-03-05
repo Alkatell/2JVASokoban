@@ -91,16 +91,19 @@ public class Player
             this.score.stopTimer();
             this.score.save(this.map.getLevel());
 
+            System.out.println("Vous avez termine le niveau " + this.map.getLevel() + " !");
+            System.out.println("Votre score : " + this.score.getResult() + ".");
+
             if(this.map.getLevel() < Map.getLastLevel())
             {
-                System.out.println("Vous avez terminé le niveau " + this.map.getLevel() + " !");
-                System.out.println("Votre score : " + this.score.getResult());
+                System.out.println("Appuyez sur la touche R pour recommencer le niveau.");
                 System.out.println("Appuyez sur la touche N pour passer au niveau suivant.\n");
             }
 
             else
             {
-                System.out.println("Vous avez terminé tous les niveaux !");
+                System.out.println("Vous avez termine tous les niveaux !");
+                System.out.println("Appuyez sur la touche R pour recommencer le niveau.");
                 System.out.println("Appuyez sur la touche ECHAP pour terminer.");
             }
         }
@@ -113,6 +116,7 @@ public class Player
 
     public void play(int level)
     {
+        System.out.println("Appuyez sur la touche R pour recommencer le niveau.\n");
         this.score = new Score();
         this.map = new Map(level, this);
         this.map.display();

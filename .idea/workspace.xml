@@ -6,15 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9979cb15-3401-4cbb-9ae9-9d5c334d03b7" name="Default" comment="Correction du bug qui permettait de passer au niveau suivant sans l'avoir fini&#10;Modification du créateur de map&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/JNativeHook.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/json-simple-1.1.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/json_simple_1_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scores.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2JVASokoban.iml" afterPath="$PROJECT_DIR$/2JVASokoban.iml" />
+    <list default="true" id="9979cb15-3401-4cbb-9ae9-9d5c334d03b7" name="Default" comment="Test de jnativehook 1.2&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/supinfo/sokoban/Launcher.java" afterPath="$PROJECT_DIR$/src/com/supinfo/sokoban/Launcher.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/supinfo/sokoban/Map.java" afterPath="$PROJECT_DIR$/src/com/supinfo/sokoban/Map.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/supinfo/sokoban/Player.java" afterPath="$PROJECT_DIR$/src/com/supinfo/sokoban/Player.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/supinfo/sokoban/Score.java" afterPath="$PROJECT_DIR$/src/com/supinfo/sokoban/Score.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scores.json" afterPath="$PROJECT_DIR$/scores.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="2JVA.iws" />
@@ -26,6 +23,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/2JVA$Launcher.coverage" NAME="Launcher Coverage Results" MODIFIED="1394019113503" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.supinfo.sokoban.*</FILTER>
+    </SUITE>
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -79,12 +81,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Launcher.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Launcher.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Launcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="49" selection-start="1107" selection-end="1107" vertical-scroll-proportion="0.8095238" vertical-offset="204" max-vertical-offset="1734">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#main#0;class#Launcher#0" expanded="false" />
+                <element signature="method#play#0;class#Launcher#0" expanded="false" />
+                <element signature="method#help#0;class#Launcher#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -93,8 +97,20 @@
       <file leaf-file-name="Map.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="40" selection-start="313" selection-end="360" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4862">
-              <folding />
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969">
+              <folding>
+                <element signature="method#Map#0;class#Map#0" expanded="false" />
+                <element signature="method#getLastLevel#0;class#Map#0" expanded="false" />
+                <element signature="method#detectSize#0;class#Map#0" expanded="false" />
+                <element signature="method#initialize#0;class#Map#0" expanded="false" />
+                <element signature="method#display#0;class#Map#0" expanded="false" />
+                <element signature="method#getCell#0;class#Map#0" expanded="false" />
+                <element signature="method#getCell#1;class#Map#0" expanded="false" />
+                <element signature="method#isDone#0;class#Map#0" expanded="false" />
+                <element signature="method#create#0;class#Map#0" expanded="false" />
+                <element signature="e#5864#5872#0" expanded="true" />
+                <element signature="method#checkPosition#0;class#Map#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -102,8 +118,14 @@
       <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="49" selection-start="2951" selection-end="2951" vertical-scroll-proportion="0.0" vertical-offset="1344" max-vertical-offset="2312">
-              <folding />
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+              <folding>
+                <element signature="method#setPosition#0;class#Player#0" expanded="false" />
+                <element signature="method#move#0;class#Player#0" expanded="false" />
+                <element signature="method#playNextLevel#0;class#Player#0" expanded="false" />
+                <element signature="method#play#0;class#Player#0" expanded="false" />
+                <element signature="method#replay#0;class#Player#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -111,9 +133,12 @@
       <file leaf-file-name="KeyboardListener.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/KeyboardListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="40" selection-start="634" selection-end="634" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1088">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#KeyboardListener#0;class#KeyboardListener#0" expanded="false" />
+                <element signature="method#nativeKeyPressed#0;class#KeyboardListener#0" expanded="false" />
+                <element signature="method#nativeKeyReleased#0;class#KeyboardListener#0" expanded="false" />
+                <element signature="method#nativeKeyTyped#0;class#KeyboardListener#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -122,18 +147,32 @@
       <file leaf-file-name="Position.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Position.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="13" selection-start="43" selection-end="43" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-              <folding />
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+              <folding>
+                <element signature="method#Position#0;class#Position#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Score.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Score.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Score.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="9" selection-start="1216" selection-end="1216" vertical-scroll-proportion="0.0" vertical-offset="422" max-vertical-offset="3434">
+            <state line="15" column="27" selection-start="351" selection-end="351" vertical-scroll-proportion="0.4187192" vertical-offset="0" max-vertical-offset="1020">
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#Score#0;class#Score#0" expanded="false" />
+                <element signature="method#startTimer#0;class#Score#0" expanded="false" />
+                <element signature="method#stopTimer#0;class#Score#0" expanded="false" />
+                <element signature="method#getResult#0;class#Score#0" expanded="false" />
+                <element signature="method#timerIsOn#0;class#Score#0" expanded="false" />
+                <element signature="method#addMove#0;class#Score#0" expanded="false" />
+                <element signature="method#save#0;class#Score#0" expanded="false" />
+                <element signature="method#getScoresByLevel#0;class#Score#0" expanded="false" />
+                <element signature="method#display#0;class#Score#0" expanded="false" />
+                <element signature="e#4539#4546#0" expanded="true" />
+                <element signature="method#initialize#0;class#Score#0" expanded="false" />
+                <element signature="method#getDifference#0;class#Score#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -142,8 +181,11 @@
       <file leaf-file-name="Cell.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Cell.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="26" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-              <folding />
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
+              <folding>
+                <element signature="method#Cell#0;class#Cell#0" expanded="false" />
+                <element signature="method#reset#0;class#Cell#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -164,7 +206,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="jnativehook1.2" />
       </map>
     </option>
   </component>
@@ -174,9 +216,9 @@
         <option value="$PROJECT_DIR$/src/com/supinfo/sokoban/Position.java" />
         <option value="$PROJECT_DIR$/src/com/supinfo/sokoban/Cell.java" />
         <option value="$PROJECT_DIR$/src/com/supinfo/sokoban/KeyboardListener.java" />
-        <option value="$PROJECT_DIR$/src/com/supinfo/sokoban/Map.java" />
         <option value="$PROJECT_DIR$/src/com/supinfo/sokoban/Player.java" />
         <option value="$PROJECT_DIR$/src/com/supinfo/sokoban/Launcher.java" />
+        <option value="$PROJECT_DIR$/src/com/supinfo/sokoban/Map.java" />
         <option value="$PROJECT_DIR$/src/com/supinfo/sokoban/Score.java" />
       </list>
     </option>
@@ -216,6 +258,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -282,7 +325,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -293,14 +335,14 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="FullScreen" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
     <property name="SearchEverywhereHistory" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/maps" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/json-simple-1.1.1.jar!/" />
     <property name="GenerateAntBuildDialog.generateSingleFile" value="false" />
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
@@ -312,6 +354,123 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="RestoreUpdateTree">
+    <UpdateInfo date="Moments ago" ActionInfo="_Update">
+      <UpdatedFiles>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated from server" />
+          <option name="myStatusName" value="Changed on server" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CHANGED_ON_SERVER" />
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Updated" />
+            <option name="myStatusName" value="Changed" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="UPDATED" />
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/JNativeHook.xml</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/2JVASokoban.iml</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/scores.json</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/src/com/supinfo/sokoban/Score.java</PATH>
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Created" />
+            <option name="myStatusName" value="Created" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="CREATED" />
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/artifacts/2JVASokoban_jar.xml</PATH>
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Deleted" />
+            <option name="myStatusName" value="Deleted" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="true" />
+            <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/json_simple_1_1_1.xml</PATH>
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Restored" />
+            <option name="myStatusName" value="Will be restored" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="RESTORED" />
+          </FILE-GROUP>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Modified" />
+          <option name="myStatusName" value="Modified" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MODIFIED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Skipped" />
+          <option name="myStatusName" value="Skipped" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="SKIPPED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged with conflicts" />
+          <option name="myStatusName" value="Will be merged with conflicts" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED_WITH_CONFLICTS" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged with tree conflicts" />
+          <option name="myStatusName" value="Merged with tree conflicts" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged with property conflicts" />
+          <option name="myStatusName" value="Will be merged with property conflicts" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged" />
+          <option name="myStatusName" value="Will be merged" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Not in repository" />
+          <option name="myStatusName" value="Not in repository" />
+          <option name="mySupportsDeletion" value="true" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UNKNOWN" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Locally added" />
+          <option name="myStatusName" value="Locally added" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="LOCALLY_ADDED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Locally removed" />
+          <option name="myStatusName" value="Locally removed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="LOCALLY_REMOVED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Switched" />
+          <option name="myStatusName" value="Switched" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="SWITCHED" />
+        </FILE-GROUP>
+      </UpdatedFiles>
+    </UpdateInfo>
   </component>
   <component name="RunManager" selected="Application.Launcher">
     <configuration default="false" name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -332,12 +491,14 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="2JVASokoban" />
       <envs />
+      <RunnerSettings RunnerId="Cover" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="" />
         <option name="TRANSPORT" value="0" />
         <option name="LOCAL" value="true" />
       </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Cover" />
       <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
@@ -606,28 +767,46 @@
       <workItem from="1393708022829" duration="973000" />
       <workItem from="1393709733470" duration="2860000" />
       <workItem from="1393803602962" duration="5513000" />
-      <workItem from="1393835444061" duration="7861000" />
+      <workItem from="1393835444061" duration="11632000" />
+      <workItem from="1393849130297" duration="1779000" />
+      <workItem from="1393851369201" duration="323000" />
+      <workItem from="1393851741604" duration="416000" />
+      <workItem from="1393852227661" duration="639000" />
+      <workItem from="1393952923421" duration="237000" />
+      <workItem from="1393954103531" duration="2225000" />
+      <workItem from="1394018292158" duration="6623000" />
     </task>
     <task id="LOCAL-00001" summary="Gestion des déplacements avec les flèches&#10;Possibilité de recommencer le niveau en appuyant sur r">
       <created>1393710682059</created>
       <updated>1393710682059</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Enregistrement des scores&#10;Affichage des score par niveau (--score)">
+      <created>1393843367590</created>
+      <updated>1393843367590</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Test avec jnativehook 1.2">
+      <created>1393851792558</created>
+      <updated>1393851792559</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Test de jnativehook 1.2&#10;">
+      <created>1393852475339</created>
+      <updated>1393852475339</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47981000" />
+    <option name="totallyTimeSpent" value="63994000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.344245" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -637,16 +816,18 @@
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32946146" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1921875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1921875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -663,7 +844,10 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="Gestion des déplacements avec les flèches&#10;Possibilité de recommencer le niveau en appuyant sur r" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gestion des déplacements avec les flèches&#10;Possibilité de recommencer le niveau en appuyant sur r" />
+    <MESSAGE value="Enregistrement des scores&#10;Affichage des score par niveau (--score)" />
+    <MESSAGE value="Test avec jnativehook 1.2" />
+    <MESSAGE value="Test de jnativehook 1.2&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test de jnativehook 1.2&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -676,7 +860,13 @@
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="96" column="0" selection-start="3196" selection-end="3196" vertical-scroll-proportion="0.0" vertical-offset="1170" max-vertical-offset="2346">
-          <folding />
+          <folding>
+            <element signature="method#setPosition#0;class#Player#0" expanded="false" />
+            <element signature="method#move#0;class#Player#0" expanded="false" />
+            <element signature="method#playNextLevel#0;class#Player#0" expanded="false" />
+            <element signature="method#play#0;class#Player#0" expanded="false" />
+            <element signature="method#replay#0;class#Player#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -684,7 +874,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="37" selection-start="1219" selection-end="1219" vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="1088">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#KeyboardListener#0;class#KeyboardListener#0" expanded="false" />
+            <element signature="method#nativeKeyPressed#0;class#KeyboardListener#0" expanded="false" />
+            <element signature="method#nativeKeyReleased#0;class#KeyboardListener#0" expanded="false" />
+            <element signature="method#nativeKeyTyped#0;class#KeyboardListener#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -692,7 +885,10 @@
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Cell.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="26" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="884">
-          <folding />
+          <folding>
+            <element signature="method#Cell#0;class#Cell#0" expanded="false" />
+            <element signature="method#reset#0;class#Cell#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -700,7 +896,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="83" column="27" selection-start="2256" selection-end="2256" vertical-scroll-proportion="0.0" vertical-offset="1034" max-vertical-offset="1751">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#main#0;class#Launcher#0" expanded="false" />
+            <element signature="method#play#0;class#Launcher#0" expanded="false" />
+            <element signature="method#help#0;class#Launcher#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -708,14 +906,32 @@
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Map.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="202" column="5" selection-start="5219" selection-end="5219" vertical-scroll-proportion="0.0" vertical-offset="3434" max-vertical-offset="4488">
-          <folding />
+          <folding>
+            <element signature="method#Map#0;class#Map#0" expanded="false" />
+            <element signature="method#getLastLevel#0;class#Map#0" expanded="false" />
+            <element signature="method#detectSize#0;class#Map#0" expanded="false" />
+            <element signature="method#initialize#0;class#Map#0" expanded="false" />
+            <element signature="method#display#0;class#Map#0" expanded="false" />
+            <element signature="method#getCell#0;class#Map#0" expanded="false" />
+            <element signature="method#getCell#1;class#Map#0" expanded="false" />
+            <element signature="method#isDone#0;class#Map#0" expanded="false" />
+            <element signature="method#create#0;class#Map#0" expanded="false" />
+            <element signature="e#5864#5872#0" expanded="true" />
+            <element signature="method#checkPosition#0;class#Map#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="116" column="22" selection-start="3587" selection-end="3593" vertical-scroll-proportion="0.0" vertical-offset="1972" max-vertical-offset="2244">
-          <folding />
+          <folding>
+            <element signature="method#setPosition#0;class#Player#0" expanded="false" />
+            <element signature="method#move#0;class#Player#0" expanded="false" />
+            <element signature="method#playNextLevel#0;class#Player#0" expanded="false" />
+            <element signature="method#play#0;class#Player#0" expanded="false" />
+            <element signature="method#replay#0;class#Player#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -723,7 +939,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="41" selection-start="676" selection-end="676" vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="1037">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#KeyboardListener#0;class#KeyboardListener#0" expanded="false" />
+            <element signature="method#nativeKeyPressed#0;class#KeyboardListener#0" expanded="false" />
+            <element signature="method#nativeKeyReleased#0;class#KeyboardListener#0" expanded="false" />
+            <element signature="method#nativeKeyTyped#0;class#KeyboardListener#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -731,7 +950,10 @@
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Cell.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="26" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="884">
-          <folding />
+          <folding>
+            <element signature="method#Cell#0;class#Cell#0" expanded="false" />
+            <element signature="method#reset#0;class#Cell#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -739,7 +961,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="82" column="52" selection-start="2194" selection-end="2194" vertical-scroll-proportion="0.0" vertical-offset="938" max-vertical-offset="1853">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#main#0;class#Launcher#0" expanded="false" />
+            <element signature="method#play#0;class#Launcher#0" expanded="false" />
+            <element signature="method#help#0;class#Launcher#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -747,14 +971,32 @@
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Map.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="128" column="9" selection-start="3574" selection-end="3574" vertical-scroll-proportion="0.0" vertical-offset="2176" max-vertical-offset="4692">
-          <folding />
+          <folding>
+            <element signature="method#Map#0;class#Map#0" expanded="false" />
+            <element signature="method#getLastLevel#0;class#Map#0" expanded="false" />
+            <element signature="method#detectSize#0;class#Map#0" expanded="false" />
+            <element signature="method#initialize#0;class#Map#0" expanded="false" />
+            <element signature="method#display#0;class#Map#0" expanded="false" />
+            <element signature="method#getCell#0;class#Map#0" expanded="false" />
+            <element signature="method#getCell#1;class#Map#0" expanded="false" />
+            <element signature="method#isDone#0;class#Map#0" expanded="false" />
+            <element signature="method#create#0;class#Map#0" expanded="false" />
+            <element signature="e#5864#5872#0" expanded="true" />
+            <element signature="method#checkPosition#0;class#Map#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="41" selection-start="234" selection-end="234" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="2142">
-          <folding />
+          <folding>
+            <element signature="method#setPosition#0;class#Player#0" expanded="false" />
+            <element signature="method#move#0;class#Player#0" expanded="false" />
+            <element signature="method#playNextLevel#0;class#Player#0" expanded="false" />
+            <element signature="method#play#0;class#Player#0" expanded="false" />
+            <element signature="method#replay#0;class#Player#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -762,7 +1004,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="1" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0" vertical-offset="65" max-vertical-offset="986">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#KeyboardListener#0;class#KeyboardListener#0" expanded="false" />
+            <element signature="method#nativeKeyPressed#0;class#KeyboardListener#0" expanded="false" />
+            <element signature="method#nativeKeyReleased#0;class#KeyboardListener#0" expanded="false" />
+            <element signature="method#nativeKeyTyped#0;class#KeyboardListener#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -771,7 +1016,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="75" column="83" selection-start="2015" selection-end="2015" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#main#0;class#Launcher#0" expanded="false" />
+            <element signature="method#play#0;class#Launcher#0" expanded="false" />
+            <element signature="method#help#0;class#Launcher#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -779,14 +1026,32 @@
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Map.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="26" selection-start="566" selection-end="566" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="4658">
-          <folding />
+          <folding>
+            <element signature="method#Map#0;class#Map#0" expanded="false" />
+            <element signature="method#getLastLevel#0;class#Map#0" expanded="false" />
+            <element signature="method#detectSize#0;class#Map#0" expanded="false" />
+            <element signature="method#initialize#0;class#Map#0" expanded="false" />
+            <element signature="method#display#0;class#Map#0" expanded="false" />
+            <element signature="method#getCell#0;class#Map#0" expanded="false" />
+            <element signature="method#getCell#1;class#Map#0" expanded="false" />
+            <element signature="method#isDone#0;class#Map#0" expanded="false" />
+            <element signature="method#create#0;class#Map#0" expanded="false" />
+            <element signature="e#5864#5872#0" expanded="true" />
+            <element signature="method#checkPosition#0;class#Map#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="41" selection-start="234" selection-end="234" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="2142">
-          <folding />
+          <folding>
+            <element signature="method#setPosition#0;class#Player#0" expanded="false" />
+            <element signature="method#move#0;class#Player#0" expanded="false" />
+            <element signature="method#playNextLevel#0;class#Player#0" expanded="false" />
+            <element signature="method#play#0;class#Player#0" expanded="false" />
+            <element signature="method#replay#0;class#Player#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -794,7 +1059,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="29" selection-start="181" selection-end="197" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="1003">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#KeyboardListener#0;class#KeyboardListener#0" expanded="false" />
+            <element signature="method#nativeKeyPressed#0;class#KeyboardListener#0" expanded="false" />
+            <element signature="method#nativeKeyReleased#0;class#KeyboardListener#0" expanded="false" />
+            <element signature="method#nativeKeyTyped#0;class#KeyboardListener#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -803,7 +1071,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="68" column="27" selection-start="1817" selection-end="1817" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1496">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#main#0;class#Launcher#0" expanded="false" />
+            <element signature="method#play#0;class#Launcher#0" expanded="false" />
+            <element signature="method#help#0;class#Launcher#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -811,14 +1081,32 @@
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Map.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="261" column="79" selection-start="6813" selection-end="6813" vertical-scroll-proportion="0.0" vertical-offset="4437" max-vertical-offset="4590">
-          <folding />
+          <folding>
+            <element signature="method#Map#0;class#Map#0" expanded="false" />
+            <element signature="method#getLastLevel#0;class#Map#0" expanded="false" />
+            <element signature="method#detectSize#0;class#Map#0" expanded="false" />
+            <element signature="method#initialize#0;class#Map#0" expanded="false" />
+            <element signature="method#display#0;class#Map#0" expanded="false" />
+            <element signature="method#getCell#0;class#Map#0" expanded="false" />
+            <element signature="method#getCell#1;class#Map#0" expanded="false" />
+            <element signature="method#isDone#0;class#Map#0" expanded="false" />
+            <element signature="method#create#0;class#Map#0" expanded="false" />
+            <element signature="e#5864#5872#0" expanded="true" />
+            <element signature="method#checkPosition#0;class#Map#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="79" column="71" selection-start="2553" selection-end="2553" vertical-scroll-proportion="0.0" vertical-offset="1190" max-vertical-offset="2312">
-          <folding />
+          <folding>
+            <element signature="method#setPosition#0;class#Player#0" expanded="false" />
+            <element signature="method#move#0;class#Player#0" expanded="false" />
+            <element signature="method#playNextLevel#0;class#Player#0" expanded="false" />
+            <element signature="method#play#0;class#Player#0" expanded="false" />
+            <element signature="method#replay#0;class#Player#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -826,7 +1114,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="48" selection-start="764" selection-end="764" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="867">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#KeyboardListener#0;class#KeyboardListener#0" expanded="false" />
+            <element signature="method#nativeKeyPressed#0;class#KeyboardListener#0" expanded="false" />
+            <element signature="method#nativeKeyReleased#0;class#KeyboardListener#0" expanded="false" />
+            <element signature="method#nativeKeyTyped#0;class#KeyboardListener#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -834,14 +1125,19 @@
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Position.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="13" selection-start="43" selection-end="43" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="493">
-          <folding />
+          <folding>
+            <element signature="method#Position#0;class#Position#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Cell.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="44" column="5" selection-start="740" selection-end="740" vertical-scroll-proportion="0.0" vertical-offset="748" max-vertical-offset="884">
-          <folding />
+          <folding>
+            <element signature="method#Cell#0;class#Cell#0" expanded="false" />
+            <element signature="method#reset#0;class#Cell#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -849,7 +1145,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="113" column="70" selection-start="2688" selection-end="2688" vertical-scroll-proportion="0.0" vertical-offset="1496" max-vertical-offset="2312">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#main#0;class#Launcher#0" expanded="false" />
+            <element signature="method#play#0;class#Launcher#0" expanded="false" />
+            <element signature="method#help#0;class#Launcher#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -857,21 +1155,41 @@
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Map.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="5" selection-start="542" selection-end="542" vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="4505">
-          <folding />
+          <folding>
+            <element signature="method#Map#0;class#Map#0" expanded="false" />
+            <element signature="method#getLastLevel#0;class#Map#0" expanded="false" />
+            <element signature="method#detectSize#0;class#Map#0" expanded="false" />
+            <element signature="method#initialize#0;class#Map#0" expanded="false" />
+            <element signature="method#display#0;class#Map#0" expanded="false" />
+            <element signature="method#getCell#0;class#Map#0" expanded="false" />
+            <element signature="method#getCell#1;class#Map#0" expanded="false" />
+            <element signature="method#isDone#0;class#Map#0" expanded="false" />
+            <element signature="method#create#0;class#Map#0" expanded="false" />
+            <element signature="e#5864#5872#0" expanded="true" />
+            <element signature="method#checkPosition#0;class#Map#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="93" column="76" selection-start="2612" selection-end="2612" vertical-scroll-proportion="0.0" vertical-offset="1581" max-vertical-offset="2465">
-          <folding />
+          <folding>
+            <element signature="method#setPosition#0;class#Player#0" expanded="false" />
+            <element signature="method#move#0;class#Player#0" expanded="false" />
+            <element signature="method#playNextLevel#0;class#Player#0" expanded="false" />
+            <element signature="method#play#0;class#Player#0" expanded="false" />
+            <element signature="method#replay#0;class#Player#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Position.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="0" selection-start="297" selection-end="297" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="493">
-          <folding />
+          <folding>
+            <element signature="method#Position#0;class#Position#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -880,6 +1198,18 @@
         <state line="28" column="0" selection-start="527" selection-end="527" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="578">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#Score#0;class#Score#0" expanded="false" />
+            <element signature="method#startTimer#0;class#Score#0" expanded="false" />
+            <element signature="method#stopTimer#0;class#Score#0" expanded="false" />
+            <element signature="method#getResult#0;class#Score#0" expanded="false" />
+            <element signature="method#timerIsOn#0;class#Score#0" expanded="false" />
+            <element signature="method#addMove#0;class#Score#0" expanded="false" />
+            <element signature="method#save#0;class#Score#0" expanded="false" />
+            <element signature="method#getScoresByLevel#0;class#Score#0" expanded="false" />
+            <element signature="method#display#0;class#Score#0" expanded="false" />
+            <element signature="e#4539#4546#0" expanded="true" />
+            <element signature="method#initialize#0;class#Score#0" expanded="false" />
+            <element signature="method#getDifference#0;class#Score#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -887,7 +1217,10 @@
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Cell.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="27" selection-start="412" selection-end="412" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="663">
-          <folding />
+          <folding>
+            <element signature="method#Cell#0;class#Cell#0" expanded="false" />
+            <element signature="method#reset#0;class#Cell#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -895,7 +1228,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="87" column="9" selection-start="2215" selection-end="2215" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2329">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#main#0;class#Launcher#0" expanded="false" />
+            <element signature="method#play#0;class#Launcher#0" expanded="false" />
+            <element signature="method#help#0;class#Launcher#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -903,21 +1238,41 @@
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Map.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="5" selection-start="583" selection-end="583" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="3740">
-          <folding />
+          <folding>
+            <element signature="method#Map#0;class#Map#0" expanded="false" />
+            <element signature="method#getLastLevel#0;class#Map#0" expanded="false" />
+            <element signature="method#detectSize#0;class#Map#0" expanded="false" />
+            <element signature="method#initialize#0;class#Map#0" expanded="false" />
+            <element signature="method#display#0;class#Map#0" expanded="false" />
+            <element signature="method#getCell#0;class#Map#0" expanded="false" />
+            <element signature="method#getCell#1;class#Map#0" expanded="false" />
+            <element signature="method#isDone#0;class#Map#0" expanded="false" />
+            <element signature="method#create#0;class#Map#0" expanded="false" />
+            <element signature="e#5864#5872#0" expanded="true" />
+            <element signature="method#checkPosition#0;class#Map#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="93" column="76" selection-start="2612" selection-end="2612" vertical-scroll-proportion="0.0" vertical-offset="1581" max-vertical-offset="2465">
-          <folding />
+          <folding>
+            <element signature="method#setPosition#0;class#Player#0" expanded="false" />
+            <element signature="method#move#0;class#Player#0" expanded="false" />
+            <element signature="method#playNextLevel#0;class#Player#0" expanded="false" />
+            <element signature="method#play#0;class#Player#0" expanded="false" />
+            <element signature="method#replay#0;class#Player#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Position.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="0" selection-start="297" selection-end="297" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="493">
-          <folding />
+          <folding>
+            <element signature="method#Position#0;class#Position#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -926,6 +1281,18 @@
         <state line="11" column="0" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="289">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#Score#0;class#Score#0" expanded="false" />
+            <element signature="method#startTimer#0;class#Score#0" expanded="false" />
+            <element signature="method#stopTimer#0;class#Score#0" expanded="false" />
+            <element signature="method#getResult#0;class#Score#0" expanded="false" />
+            <element signature="method#timerIsOn#0;class#Score#0" expanded="false" />
+            <element signature="method#addMove#0;class#Score#0" expanded="false" />
+            <element signature="method#save#0;class#Score#0" expanded="false" />
+            <element signature="method#getScoresByLevel#0;class#Score#0" expanded="false" />
+            <element signature="method#display#0;class#Score#0" expanded="false" />
+            <element signature="e#4539#4546#0" expanded="true" />
+            <element signature="method#initialize#0;class#Score#0" expanded="false" />
+            <element signature="method#getDifference#0;class#Score#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -933,7 +1300,10 @@
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Cell.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="27" selection-start="412" selection-end="412" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="663">
-          <folding />
+          <folding>
+            <element signature="method#Cell#0;class#Cell#0" expanded="false" />
+            <element signature="method#reset#0;class#Cell#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -941,7 +1311,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="76" column="30" selection-start="1888" selection-end="1888" vertical-scroll-proportion="0.0" vertical-offset="1003" max-vertical-offset="2329">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#main#0;class#Launcher#0" expanded="false" />
+            <element signature="method#play#0;class#Launcher#0" expanded="false" />
+            <element signature="method#help#0;class#Launcher#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -949,21 +1321,41 @@
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Map.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="5" selection-start="583" selection-end="583" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="3740">
-          <folding />
+          <folding>
+            <element signature="method#Map#0;class#Map#0" expanded="false" />
+            <element signature="method#getLastLevel#0;class#Map#0" expanded="false" />
+            <element signature="method#detectSize#0;class#Map#0" expanded="false" />
+            <element signature="method#initialize#0;class#Map#0" expanded="false" />
+            <element signature="method#display#0;class#Map#0" expanded="false" />
+            <element signature="method#getCell#0;class#Map#0" expanded="false" />
+            <element signature="method#getCell#1;class#Map#0" expanded="false" />
+            <element signature="method#isDone#0;class#Map#0" expanded="false" />
+            <element signature="method#create#0;class#Map#0" expanded="false" />
+            <element signature="e#5864#5872#0" expanded="true" />
+            <element signature="method#checkPosition#0;class#Map#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="93" column="76" selection-start="2612" selection-end="2612" vertical-scroll-proportion="0.0" vertical-offset="1581" max-vertical-offset="2465">
-          <folding />
+          <folding>
+            <element signature="method#setPosition#0;class#Player#0" expanded="false" />
+            <element signature="method#move#0;class#Player#0" expanded="false" />
+            <element signature="method#playNextLevel#0;class#Player#0" expanded="false" />
+            <element signature="method#play#0;class#Player#0" expanded="false" />
+            <element signature="method#replay#0;class#Player#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Position.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="0" selection-start="297" selection-end="297" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="493">
-          <folding />
+          <folding>
+            <element signature="method#Position#0;class#Position#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -972,6 +1364,18 @@
         <state line="6" column="0" selection-start="75" selection-end="75" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="289">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#Score#0;class#Score#0" expanded="false" />
+            <element signature="method#startTimer#0;class#Score#0" expanded="false" />
+            <element signature="method#stopTimer#0;class#Score#0" expanded="false" />
+            <element signature="method#getResult#0;class#Score#0" expanded="false" />
+            <element signature="method#timerIsOn#0;class#Score#0" expanded="false" />
+            <element signature="method#addMove#0;class#Score#0" expanded="false" />
+            <element signature="method#save#0;class#Score#0" expanded="false" />
+            <element signature="method#getScoresByLevel#0;class#Score#0" expanded="false" />
+            <element signature="method#display#0;class#Score#0" expanded="false" />
+            <element signature="e#4539#4546#0" expanded="true" />
+            <element signature="method#initialize#0;class#Score#0" expanded="false" />
+            <element signature="method#getDifference#0;class#Score#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -979,7 +1383,10 @@
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Cell.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="27" selection-start="412" selection-end="412" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="663">
-          <folding />
+          <folding>
+            <element signature="method#Cell#0;class#Cell#0" expanded="false" />
+            <element signature="method#reset#0;class#Cell#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -987,7 +1394,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="0" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#main#0;class#Launcher#0" expanded="false" />
+            <element signature="method#play#0;class#Launcher#0" expanded="false" />
+            <element signature="method#help#0;class#Launcher#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -996,7 +1405,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#main#0;class#Launcher#0" expanded="false" />
+            <element signature="method#play#0;class#Launcher#0" expanded="false" />
+            <element signature="method#help#0;class#Launcher#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1005,7 +1416,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#main#0;class#Launcher#0" expanded="false" />
+            <element signature="method#play#0;class#Launcher#0" expanded="false" />
+            <element signature="method#help#0;class#Launcher#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1014,62 +1427,104 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="0" selection-start="156" selection-end="156" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="255">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#main#0;class#Launcher#0" expanded="false" />
+            <element signature="method#play#0;class#Launcher#0" expanded="false" />
+            <element signature="method#help#0;class#Launcher#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Cell.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="26" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="40" selection-start="313" selection-end="360" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4862">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="49" selection-start="2951" selection-end="2951" vertical-scroll-proportion="0.0" vertical-offset="1344" max-vertical-offset="2312">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/KeyboardListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="40" selection-start="634" selection-end="634" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1088">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#Cell#0;class#Cell#0" expanded="false" />
+            <element signature="method#reset#0;class#Cell#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Position.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="13" selection-start="43" selection-end="43" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-          <folding />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <folding>
+            <element signature="method#Position#0;class#Position#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Score.java">
+    <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/KeyboardListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="9" selection-start="1216" selection-end="1216" vertical-scroll-proportion="0.0" vertical-offset="422" max-vertical-offset="3434">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#KeyboardListener#0;class#KeyboardListener#0" expanded="false" />
+            <element signature="method#nativeKeyPressed#0;class#KeyboardListener#0" expanded="false" />
+            <element signature="method#nativeKeyReleased#0;class#KeyboardListener#0" expanded="false" />
+            <element signature="method#nativeKeyTyped#0;class#KeyboardListener#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+          <folding>
+            <element signature="method#setPosition#0;class#Player#0" expanded="false" />
+            <element signature="method#move#0;class#Player#0" expanded="false" />
+            <element signature="method#playNextLevel#0;class#Player#0" expanded="false" />
+            <element signature="method#play#0;class#Player#0" expanded="false" />
+            <element signature="method#replay#0;class#Player#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969">
+          <folding>
+            <element signature="method#Map#0;class#Map#0" expanded="false" />
+            <element signature="method#getLastLevel#0;class#Map#0" expanded="false" />
+            <element signature="method#detectSize#0;class#Map#0" expanded="false" />
+            <element signature="method#initialize#0;class#Map#0" expanded="false" />
+            <element signature="method#display#0;class#Map#0" expanded="false" />
+            <element signature="method#getCell#0;class#Map#0" expanded="false" />
+            <element signature="method#getCell#1;class#Map#0" expanded="false" />
+            <element signature="method#isDone#0;class#Map#0" expanded="false" />
+            <element signature="method#create#0;class#Map#0" expanded="false" />
+            <element signature="e#5864#5872#0" expanded="true" />
+            <element signature="method#checkPosition#0;class#Map#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Launcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="49" selection-start="1107" selection-end="1107" vertical-scroll-proportion="0.8095238" vertical-offset="204" max-vertical-offset="1734">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="921">
+          <folding>
+            <element signature="method#main#0;class#Launcher#0" expanded="false" />
+            <element signature="method#play#0;class#Launcher#0" expanded="false" />
+            <element signature="method#help#0;class#Launcher#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/supinfo/sokoban/Score.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="27" selection-start="351" selection-end="351" vertical-scroll-proportion="0.4187192" vertical-offset="0" max-vertical-offset="1020">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#Score#0;class#Score#0" expanded="false" />
+            <element signature="method#startTimer#0;class#Score#0" expanded="false" />
+            <element signature="method#stopTimer#0;class#Score#0" expanded="false" />
+            <element signature="method#getResult#0;class#Score#0" expanded="false" />
+            <element signature="method#timerIsOn#0;class#Score#0" expanded="false" />
+            <element signature="method#addMove#0;class#Score#0" expanded="false" />
+            <element signature="method#save#0;class#Score#0" expanded="false" />
+            <element signature="method#getScoresByLevel#0;class#Score#0" expanded="false" />
+            <element signature="method#display#0;class#Score#0" expanded="false" />
+            <element signature="e#4539#4546#0" expanded="true" />
+            <element signature="method#initialize#0;class#Score#0" expanded="false" />
+            <element signature="method#getDifference#0;class#Score#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1081,10 +1536,10 @@
         <settings>
           <artifact-editor>
             <show-content>
-              <type id="library" />
-              <type id="artifact" />
-              <type id="javaee-facet-resources" />
               <type id="jpa-descriptors" />
+              <type id="javaee-facet-resources" />
+              <type id="artifact" />
+              <type id="library" />
             </show-content>
           </artifact-editor>
           <last-edited>2JVASokoban:jar</last-edited>
@@ -1147,7 +1602,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>json-simple-1.1.1</last-edited>
+          <last-edited>JNativeHook</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

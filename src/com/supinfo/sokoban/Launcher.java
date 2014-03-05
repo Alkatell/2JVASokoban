@@ -59,6 +59,7 @@ public class Launcher
                 break;
 
             default:
+                Launcher.help();
                 break;
         }
     }
@@ -86,11 +87,11 @@ public class Launcher
     public static void help()
     {
         System.out.println(
-            "Options supportées :\n"
+            "Options supportees :\n"
             + "--help : afficher l'aide\n"
             + "--level X : jouer au niveau X\n"
             + "--score X : afficher les scores du niveau X\n"
-            + "--create : lancer l'éditeur de niveau"
+            + "--create : lancer l'editeur de niveau"
         );
     }
 }
