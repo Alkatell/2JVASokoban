@@ -17,10 +17,12 @@ public class KeyboardListener implements NativeKeyListener
     {
         switch(e.getKeyCode())
         {
+            // Quitter le jeu
             case NativeKeyEvent.VK_ESCAPE:
                 GlobalScreen.unregisterNativeHook();
                 break;
 
+            // Se déplacer
             case NativeKeyEvent.VK_LEFT:
             case NativeKeyEvent.VK_DOWN:
             case NativeKeyEvent.VK_RIGHT:
@@ -31,13 +33,16 @@ public class KeyboardListener implements NativeKeyListener
                 }
                 break;
 
+            // Passer au niveau suivant
             case NativeKeyEvent.VK_N:
+                // On passe au niveau suivant en appuyant sur N seulement si le niveau est terminé (timer stoppé) et si le niveau suivant existe
                 if(!this.player.getScore().timerIsOn() && this.player.getMap().getLevel() < Map.getLastLevel())
                 {
                     this.player.playNextLevel();
                 }
                 break;
 
+            // Recommencer le niveau (utile si on est bloqué)
             case NativeKeyEvent.VK_R:
                 this.player.replay();
                 break;

@@ -27,18 +27,28 @@ public class Score
         this.moves = 0;
     }
 
+    /**
+     * Enregistre l'heure à laquelle le joueur à commencé le niveau
+     */
     public void startTimer()
     {
         this.startedAt = new Date().getTime();
         this.timerOn = true;
     }
 
+    /**
+     * * Enregistre l'heure à laquelle le joueur à terminé le niveau
+     */
     public void stopTimer()
     {
         this.stoppedAt = new Date().getTime();
         this.timerOn = false;
     }
 
+    /**
+     * Renvoie le score réalisé (en faisant une phrase)
+     * @return String
+     */
     public String getResult()
     {
         long difference = this.stoppedAt - this.startedAt;
@@ -65,16 +75,27 @@ public class Score
         return result;
     }
 
+    /**
+     * Renvoie vrai si le timer est lancé
+     * @return boolean
+     */
     public boolean timerIsOn()
     {
         return this.timerOn;
     }
 
+    /**
+     * Ajoute un mouvement (pour compter le nombre de mouvements total)
+     */
     public void addMove()
     {
         this.moves++;
     }
 
+    /**
+     * Sauvegarde le score réalisé dans le fichier JSON
+     * @param levelId niveau qui vient d'être terminé
+     */
     public void save(int levelId)
     {
         // On crée l'objet JSON score
@@ -137,6 +158,10 @@ public class Score
         }
     }
 
+    /**
+     * Renvoie l'objet JSONObject contenant les scores rangés par niveaux
+     * @return JSONObject
+     */
     private static JSONObject getScoresByLevel()
     {
         JSONParser parser = new JSONParser();
@@ -156,6 +181,10 @@ public class Score
         return scoresByLevel;
     }
 
+    /**
+     * Affiche les 10 meileurs scores d'un niveau
+     * @param levelId niveau dont on veut afficher les scores
+     */
     public static void display(int levelId)
     {
         JSONObject scoresByLevel = Score.getScoresByLevel();
@@ -163,10 +192,12 @@ public class Score
         JSONArray levels = (JSONArray) scoresByLevel.get("levels");
         Iterator<JSONObject> levelsIterator = levels.iterator();
 
+        // On recherche le niveau
         while(levelsIterator.hasNext())
         {
             JSONObject level = levelsIterator.next();
 
+            // Si on a des scores pour le niveau demandé
             if(Integer.parseInt(level.get("id").toString()) == levelId)
             {
                 JSONArray scores = (JSONArray) level.get("scores");
@@ -174,6 +205,7 @@ public class Score
 
 	            ArrayList<Score> result = new ArrayList<Score>();
 
+                // On parcourt les scores et on les enregistre dans le tableau "result"
                 while(scoresIterator.hasNext())
                 {
                     JSONObject score = scoresIterator.next();
@@ -184,6 +216,7 @@ public class Score
 					result.add(currentScore);
                 }
 
+                // On trie le tableau "result" afin d'afficher les scores dans l'ordre
 	            boolean sorted;
 
 				do
@@ -203,7 +236,8 @@ public class Score
 				}
 				while(!sorted);
 
-                int limit = (result.size()< 10) ? result.size() : 10;
+                // On affiche les 10 meilleurs scores
+                int limit = (result.size() < 10) ? result.size() : 10;
 
                 System.out.println();
 
@@ -217,6 +251,10 @@ public class Score
         }
     }
 
+    /**
+     * Initialise l'objet Score à partir d'un objet JSONObject
+     * @param score object JSONObject dont on veut extraire les données
+     */
     public void initialize(JSONObject score)
     {
         this.startedAt = Long.parseLong(score.get("startedAt").toString());
@@ -224,6 +262,11 @@ public class Score
         this.moves = Integer.parseInt(score.get("moves").toString());
     }
 
+    /**
+     * Renvoie le nombre de millisecondes écoulées entre l'heure où on a démarré le timer et celle où on l'a stoppé
+     * Fonction utilisée pour trier les scores
+     * @return int
+     */
 	public int getDifference()
 	{
 		return (int) this.stoppedAt - (int) this.startedAt;

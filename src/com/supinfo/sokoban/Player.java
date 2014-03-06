@@ -8,11 +8,20 @@ public class Player
     private Map map;
     private Score score;
 
+    /**
+     * Défini la position du joueur
+     * @param x position x du joueur
+     * @param y position y du joueur
+     */
     public void setPosition(int x, int y)
     {
         this.position = new Position(x, y);
     }
 
+    /**
+     * Déplace le joueur en fonction de la direction entrée par l'utilisateur
+     * @param direction
+     */
     public void move(int direction)
     {
         // On calcule les deux prochaines positions en fonction de la direction
@@ -109,11 +118,18 @@ public class Player
         }
     }
 
+    /**
+     * Lance le niveau suivant
+     */
     public void playNextLevel()
     {
         this.play(this.map.getLevel() + 1);
     }
 
+    /**
+     * Lance le niveau actuel
+     * @param level numéro du niveau à jouer
+     */
     public void play(int level)
     {
         System.out.println("Appuyez sur la touche R pour recommencer le niveau.\n");
@@ -123,16 +139,27 @@ public class Player
         this.score.startTimer();
     }
 
+    /**
+     * Relance le niveau actuel
+     */
     public void replay()
     {
         this.play(this.map.getLevel());
     }
 
+    /**
+     * Renvoie le score du joueur
+     * @return Score
+     */
     public Score getScore()
     {
         return score;
     }
 
+    /**
+     * Renvoie la map actuelle
+     * @return Map
+     */
     public Map getMap()
     {
         return this.map;

@@ -1,5 +1,6 @@
 package com.supinfo.sokoban;
 
+import org.jnativehook.GlobalScreen;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -27,6 +28,10 @@ public class Map
         this.initialize(player);
     }
 
+    /**
+     * Renvoie le dernier niveau existant
+     * @return int
+     */
 	public static int getLastLevel()
     {
         File file = new File(Map.PATH);
@@ -41,6 +46,9 @@ public class Map
         return files.length;
     }
 
+    /**
+     * Détecte la taille de la map (nombre de lignes et de colonnes) afin de l'initialiser
+     */
     private void detectSize()
     {
         try
@@ -48,11 +56,13 @@ public class Map
             Scanner scanner = new Scanner(new File(this.path));
             boolean isFirstLine = true;
 
+            // On parcourt chaque ligne du fichier contenant la map afin d'obtenir le nombre total de lignes
             while(scanner.hasNextLine())
             {
                 String line = scanner.nextLine();
                 this.height++;
 
+                // On compte le nombre de caractères de la première ligne (c'est le nombre total de colonnes)
                 if(isFirstLine)
                 {
                     this.width = line.length();
@@ -65,10 +75,16 @@ public class Map
 
         catch(FileNotFoundException e)
         {
-            System.out.println(e.toString());
+            System.err.println(e.toString());
+            GlobalScreen.unregisterNativeHook();
+            System.exit(1);
         }
     }
 
+    /**
+     * Initialise la map : enregistre les positions des murs, de cases vides, des boites, des cibles et du joueur.
+     * @param player Instance du joueur, afin d'initialiser sa position
+     */
     private void initialize(Player player)
     {
         this.cells = new Cell[this.width][this.height];
@@ -78,12 +94,15 @@ public class Map
             Scanner scanner = new Scanner(new File(this.path));
             int y = 0;
 
+            // On parcourt chaque ligne du fichier contenant la map
             while(scanner.hasNextLine())
             {
                 char[] line = scanner.nextLine().toCharArray();
 
+                // Pour chaque ligne, on parcours les caractères
                 for(int x = 0; x < line.length; x++)
                 {
+                    // En fonction du caractère, on initialise le tableau "cells"
                     switch(line[x])
                     {
                         case '=':
@@ -130,29 +149,29 @@ public class Map
             scanner.close();
         }
 
-        catch(FileNotFoundException e)
-        {
-            System.err.println(e.toString());
-            System.exit(1);
-        }
-
         catch(Exception e)
         {
             System.err.println(e.getMessage());
+            GlobalScreen.unregisterNativeHook();
             System.exit(1);
         }
     }
 
+    /**
+     * Affiche la map
+     */
     public void display()
     {
         System.out.println("Niveau " + this.level + " :");
 
+        // On parcourt le tableau "cells"
         for(int y = 0; y < this.height; y++)
         {
             for(int x = 0; x < this.width; x++)
             {
                 String result;
 
+                // En fonction du type de cellule, on affiche le bon caractère
                 switch(this.cells[x][y].getType())
                 {
                     case WALL:
@@ -189,54 +208,87 @@ public class Map
         System.out.println();
     }
 
+    /**
+     * Renvoie une cellule en fonction de la position reçue
+     * @param position position de la cellule que l'on souhaite récupérer
+     * @return Cell
+     */
     public Cell getCell(Position position)
     {
         return this.cells[position.getX()][position.getY()];
     }
 
+    /**
+     * Renvoie une cellule en fonction de la position reçue
+     * @param x position x de la cellule que l'on souhaite récupérer
+     * @param y position y de la cellule que l'on souhaite récupérer
+     * @return Cell
+     */
     public Cell getCell(int x, int y)
     {
         return this.cells[x][y];
     }
 
+    /**
+     * Vérifie si la map est terminée
+     * @return boolean
+     */
     public boolean isDone()
     {
+        // On parcourt le tableau contenant les positions des cibles
         for(int i = 0; i < this.targets.size(); i++)
         {
+            // Si une case qui est une cible n'est pas occupée par une boite, la map n'est pas terminée
             if(this.getCell(this.targets.get(i)).getType() != Cell.Type.BOX)
             {
                 return false;
             }
         }
 
+        // Si toutes les ciblessont occupée par une boite, alors la map est terminée
         return true;
     }
 
+    /**
+     * Revoie la largeur de la map
+     * @return int
+     */
     public int getWidth()
     {
         return this.width;
     }
 
+    /**
+     * Renvoie la hauteur de la map
+     * @return int
+     */
     public int getHeight()
     {
         return this.height;
     }
 
+    /**
+     * Renvoie le niveau de la map
+     * @return int
+     */
 	public int getLevel()
 	{
 		return this.level;
 	}
 
+    /**
+     * Créateur de map : permet à l'utilisateur de créer sa map
+     */
     public static void create()
     {
         try
         {
-            // On demande à l'utilisateur d'entrer sa map
             ArrayList<String> lines = new ArrayList<String>();
             Scanner sc = new Scanner(System.in);
             boolean scan = true;
             int totalLines = 0;
 
+            // On explique le fonctionnement à l'utilisateur
             System.out.println(
                 "\nDessinez votre map, ligne par ligne. Pour terminer, entrez une ligne contenant uniquement 'P'.\n"
                 + "Attention : pour que votre map soit valide, toutes les lignes doivent faire la meme taille,\n"
@@ -299,7 +351,7 @@ public class Map
                 return;
             }
 
-            // Vérification de la composition de la map
+            // Vérification de la composition de la map : on compte le nombre de boites, de cibles et de joueurs
             int boxes = 0, targets = 0, players = 0;
 
             for(int i = 0; i < lines.size(); i++)
@@ -328,12 +380,14 @@ public class Map
                 }
             }
 
+            // Si il n'y a pas exactement 1 joueur, la map est invalide
             if(players != 1)
             {
                 System.out.println("\nVotre map est invalide : elle doit contenir un joueur.");
                 return;
             }
 
+            // Si il n'y a pas autant de boites que de cibles, la map est invalide
             else if(boxes != targets)
             {
                 System.out.println("\nVotre map est invalide : elle doit contenir le meme nombre de boites que de cibles.");
@@ -341,9 +395,9 @@ public class Map
                 return;
             }
 
+            // Si la map n'a pas de cibles (qui est égal au nombre de boites), la map n'est pas valide
             else if(boxes == 0)
             {
-
                 System.out.println("\nVotre map est invalide : elle doit contenir au moins une boite et une cible.");
                 return;
             }
@@ -369,7 +423,8 @@ public class Map
 
             map.close();
 
-            System.out.println("\nMap disponible à l'adresse " + path + " !");
+            // On indique à l'utilisateur où la map a été enregistrée
+            System.out.println("\nMap disponible a l'adresse " + path + " !");
             System.out.println("Pour y jouer : --level " + Map.getLastLevel());
         }
 
@@ -379,6 +434,12 @@ public class Map
         }
     }
 
+    /**
+     * Vérifie si une position est valide en fonction de la taille de la map
+     * @param x position x de la cellule que l'on souhaite récupérer
+     * @param y position y de la cellule que l'on souhaite récupérer
+     * @return boolean
+     */
     public boolean checkPosition(int x, int y)
     {
         return x >= 0 && x < this.getWidth() && y >= 0 && y < this.getHeight();

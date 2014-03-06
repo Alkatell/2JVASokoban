@@ -31,6 +31,10 @@ public class Cell
         this.target = target;
     }
 
+    /**
+     * Permet de redéfinir le type d'une cellule (lorsqu'un joueur était sur une cible et qu'il se déplace, ou
+     * lorsqu'une boite était sur une cible est que le joueur la déplace)
+     */
     public void reset()
     {
         if(this.isTarget())
